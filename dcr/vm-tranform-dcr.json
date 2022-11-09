@@ -1,0 +1,123 @@
+{
+    "properties": {
+      "immutableId": "dcr-1d65d98459a34fd2b5444d5863fe752f",
+      "dataSources": {
+        "performanceCounters": [
+          {
+            "streams": [
+              "Microsoft-InsightsMetrics"
+            ],
+            "samplingFrequencyInSeconds": 10,
+            "counterSpecifiers": [
+              "\\Processor Information(_Total)\\% Processor Time",
+              "\\Processor Information(_Total)\\% Privileged Time",
+              "\\Processor Information(_Total)\\% User Time",
+              "\\Processor Information(_Total)\\Processor Frequency",
+              "\\System\\Processes",
+              "\\Process(_Total)\\Thread Count",
+              "\\Process(_Total)\\Handle Count",
+              "\\System\\System Up Time",
+              "\\System\\Context Switches/sec",
+              "\\System\\Processor Queue Length",
+              "\\Memory\\% Committed Bytes In Use",
+              "\\Memory\\Available Bytes",
+              "\\Memory\\Committed Bytes",
+              "\\Memory\\Cache Bytes",
+              "\\Memory\\Pool Paged Bytes",
+              "\\Memory\\Pool Nonpaged Bytes",
+              "\\Memory\\Pages/sec",
+              "\\Memory\\Page Faults/sec",
+              "\\Process(_Total)\\Working Set",
+              "\\Process(_Total)\\Working Set - Private",
+              "\\LogicalDisk(_Total)\\% Disk Time",
+              "\\LogicalDisk(_Total)\\% Disk Read Time",
+              "\\LogicalDisk(_Total)\\% Disk Write Time",
+              "\\LogicalDisk(_Total)\\% Idle Time",
+              "\\LogicalDisk(_Total)\\Disk Bytes/sec",
+              "\\LogicalDisk(_Total)\\Disk Read Bytes/sec",
+              "\\LogicalDisk(_Total)\\Disk Write Bytes/sec",
+              "\\LogicalDisk(_Total)\\Disk Transfers/sec",
+              "\\LogicalDisk(_Total)\\Disk Reads/sec",
+              "\\LogicalDisk(_Total)\\Disk Writes/sec",
+              "\\LogicalDisk(_Total)\\Avg. Disk sec/Transfer",
+              "\\LogicalDisk(_Total)\\Avg. Disk sec/Read",
+              "\\LogicalDisk(_Total)\\Avg. Disk sec/Write",
+              "\\LogicalDisk(_Total)\\Avg. Disk Queue Length",
+              "\\LogicalDisk(_Total)\\Avg. Disk Read Queue Length",
+              "\\LogicalDisk(_Total)\\Avg. Disk Write Queue Length",
+              "\\LogicalDisk(_Total)\\% Free Space",
+              "\\LogicalDisk(_Total)\\Free Megabytes",
+              "\\Network Interface(*)\\Bytes Total/sec",
+              "\\Network Interface(*)\\Bytes Sent/sec",
+              "\\Network Interface(*)\\Bytes Received/sec",
+              "\\Network Interface(*)\\Packets/sec",
+              "\\Network Interface(*)\\Packets Sent/sec",
+              "\\Network Interface(*)\\Packets Received/sec",
+              "\\Network Interface(*)\\Packets Outbound Errors",
+              "\\Network Interface(*)\\Packets Received Errors"
+            ],
+            "name": "perfCounterDataSource10"
+          }
+        ],
+        "windowsEventLogs": [
+          {
+            "streams": [
+              "Microsoft-Event"
+            ],
+            "xPathQueries": [
+              "Application!*[System[(Level=1 or Level=2 or Level=3 or Level=4)]]",
+              "System!*[System[(Level=1 or Level=2 or Level=3 or Level=4)]]"
+            ],
+            "name": "eventLogsDataSource"
+          }
+        ]
+      },
+      "destinations": {
+        "logAnalytics": [
+          {
+            "workspaceResourceId": "/subscriptions/4e56605e-4b16-4baa-9358-dbb8d6faedfe/resourceGroups/bw-vm/providers/Microsoft.OperationalInsights/workspaces/bw-vm",
+            "workspaceId": "761b054b-d6af-4ca8-93b9-38979d02b76b",
+            "name": "la-2147195954"
+          }
+        ],
+        "azureMonitorMetrics": {
+          "name": "azureMonitorMetrics-default"
+        }
+      },
+      "dataFlows": [
+        {
+          "streams": [
+            "Microsoft-InsightsMetrics"
+          ],
+          "destinations": [
+            "azureMonitorMetrics-default"
+          ]
+        },
+        {
+          "streams": [
+            "Microsoft-Event"
+          ],
+          "destinations": [
+            "la-2147195954"
+          ]
+        }
+      ],
+      "provisioningState": "Succeeded"
+    },
+    "location": "eastus",
+    "tags": {},
+    "kind": "Windows",
+    "id": "/subscriptions/4e56605e-4b16-4baa-9358-dbb8d6faedfe/resourceGroups/bw-vm/providers/Microsoft.Insights/dataCollectionRules/vm-base-01",
+    "name": "vm-base-01",
+    "type": "Microsoft.Insights/dataCollectionRules",
+    "etag": "\"0600de0f-0000-0100-0000-63409e1d0000\"",
+    "systemData": {
+      "createdBy": "bwren@microsoft.com",
+      "createdByType": "User",
+      "createdAt": "2022-10-07T21:46:05.335975Z",
+      "lastModifiedBy": "bwren@microsoft.com",
+      "lastModifiedByType": "User",
+      "lastModifiedAt": "2022-10-07T21:46:05.335975Z"
+    }
+  }
+  

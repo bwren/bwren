@@ -50,7 +50,7 @@
     "grunt-ng-annotate": "~1.0.1"
   },
   "dependencies": {
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "jade": "~1.11.0"
   }
 }
